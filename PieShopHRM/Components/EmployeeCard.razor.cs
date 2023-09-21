@@ -7,5 +7,10 @@ namespace PieShopHRM.Components
     {
         [Parameter]
         public Employee Employee { get; set; } = default!;
+
+        [Parameter]
+        public EventCallback<Employee> EmployeeQuickViewPopup { get; set; }
+
+
     }
 }
