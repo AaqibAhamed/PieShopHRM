@@ -7,9 +7,17 @@ namespace PieShopHRM.Pages
     {
         public List<Employee>? Employees { get; set; } = default!;
 
+        private Employee? _selectedEmployee;
+
         protected override void OnInitialized()
         {
             Employees = MockDataService.Employees;
         }
+
+        public void ShowQuickViewPopup(Employee parsedEmployee)
+        {
+            _selectedEmployee = parsedEmployee;
+        }
+
     }
 }
