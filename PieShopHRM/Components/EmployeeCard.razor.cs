@@ -11,6 +11,13 @@ namespace PieShopHRM.Components
         [Parameter]
         public EventCallback<Employee> EmployeeQuickViewPopup { get; set; }
 
+        [Inject]
+        NavigationManager NavigationManager { get; set; } = default!;
+
+        public void NavigateToDetails(Employee selectedEmployee)
+        {
+            NavigationManager.NavigateTo($"/employeedetail/{selectedEmployee.EmployeeId}");
+        }
 
     }
 }

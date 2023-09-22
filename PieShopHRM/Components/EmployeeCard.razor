@@ -11,6 +11,12 @@
                 <img src="@($"https://gillcleerenpluralsight.blob.core.windows.net/person/{Employee.EmployeeId}.jpg")" class="employee-img rounded-circle img-fluid" />
             </div>
             <button class="btn btn-primary btn-sm mb-1" @onclick="@(async ()=> await EmployeeQuickViewPopup.InvokeAsync(Employee))">Quick View</button>
+
+            @*<a href="@($"/employeedetail/{Employee.EmployeeId}")" class="btn btn-outline-primary btn-sm mb-1"> Employee Details</a>*@
+
+            <button class="btn btn-outline-primary btn-sm mb-1" @onclick="(() => NavigateToDetails(Employee))">
+                Full details
+            </button>
         </div>
     </div>
 </div>
