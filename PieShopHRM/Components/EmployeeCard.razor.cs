@@ -19,5 +19,13 @@ namespace PieShopHRM.Components
             NavigationManager.NavigateTo($"/employeedetail/{selectedEmployee.EmployeeId}");
         }
 
+        protected override void OnInitialized()
+        {
+            if (string.IsNullOrEmpty(Employee.LastName)) 
+            {
+                throw new Exception("Last name can't be empty");
+            }
+        }
+
     }
 }
