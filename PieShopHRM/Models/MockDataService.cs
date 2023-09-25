@@ -1,4 +1,4 @@
-﻿using BethanysPieShopHRM.Shared.Domain;
+﻿using PieShopHRM.Shared.Domain;
 
 namespace PieShopHRM.Models
 {
