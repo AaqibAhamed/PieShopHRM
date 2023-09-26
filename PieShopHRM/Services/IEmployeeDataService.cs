@@ -4,7 +4,7 @@ namespace PieShopHRM.Services
 {
     public interface IEmployeeDataService
     {
-        Task<IEnumerable<Employee>> GetAllEmployees();
+        Task<IEnumerable<Employee>> GetAllEmployees(bool refreshRequired = false);
 
         Task<Employee> GetEmployeeDetails(int employeeId); //GetEmployeeById
 
