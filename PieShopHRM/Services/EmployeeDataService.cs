@@ -1,6 +1,7 @@
 ﻿using Blazored.LocalStorage;
 using PieShopHRM.Helper;
 using PieShopHRM.Shared.Domain;
+using System.Text;
 using System.Text.Json;
 
 namespace PieShopHRM.Services
@@ -14,15 +15,6 @@ namespace PieShopHRM.Services
         {
             _httpClient = httpClient;
             _localStorageService = localStorageService;
-        }
-        public Task<Employee> AddEmployee(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteEmployee(int employeeId)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<Employee>> GetAllEmployees(bool refreshRequired = false)
@@ -63,9 +55,32 @@ namespace PieShopHRM.Services
                  new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
-        public Task UpdateEmployee(Employee employee)
+        public async Task<Employee> AddEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+           var employeeJson = new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PutAsync("api/employee", employeeJson);
+
+            if(response.IsSuccessStatusCode) 
+            {
+                return await JsonSerializer.DeserializeAsync<Employee>(await response.Content.ReadAsStreamAsync());
+            }
+            return null;
         }
+
+        public async Task UpdateEmployee(Employee employee)
+        {
+            var employeeJson = new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
+
+            await _httpClient.PutAsync("api/employee", employeeJson);
+
+        }
+
+        public async Task DeleteEmployee(int employeeId)
+        {
+            await _httpClient.DeleteAsync($"api/employee/{employeeId}");
+        }
+
+
     }
 }
