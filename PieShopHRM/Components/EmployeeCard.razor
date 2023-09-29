@@ -15,8 +15,13 @@
             @*<a href="@($"/employeedetail/{Employee.EmployeeId}")" class="btn btn-outline-primary btn-sm mb-1"> Employee Details</a>*@
 
             <button class="btn btn-outline-primary btn-sm mb-1" @onclick="(() => NavigateToDetails(Employee))">
-                Full details
+                Full Details
             </button>
+
+            <a href="@($"/employeeEdit/{Employee.EmployeeId}")" class="btn btn-outline-primary btn-sm mb-1"> Edit Employee Details</a>
+
+         
+
         </div>
     </div>
 </div>
