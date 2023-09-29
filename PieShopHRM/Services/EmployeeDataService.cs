@@ -59,7 +59,7 @@ namespace PieShopHRM.Services
         {
            var employeeJson = new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PutAsync("api/employee", employeeJson);
+            var response = await _httpClient.PostAsync("api/employee", employeeJson);
 
             if(response.IsSuccessStatusCode) 
             {
