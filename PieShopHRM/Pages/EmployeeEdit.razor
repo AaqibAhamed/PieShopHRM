@@ -19,7 +19,7 @@
                 <div class="row mb-3">
                     <label for="image" class="col-12 col-sm-3">Select image: </label>
                     <div class="col-md-8">
-                        <InputFile OnChange="OnInputFileChange" />
+                        <InputFile OnChange="@OnInputFileChange" />
                     </div>
 
                 </div>
@@ -37,9 +37,9 @@
                 <label for="firstName" class="col-form-label col-md-3">First name: </label>
                 <div class="col-md-8">
                     <InputText id="firstName" class="form-control col-md-8" @bind-Value="@Employee.FirstName" placeholder="Enter first name"></InputText>
-                    <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.FirstName)" />
-                </div>
 
+                </div>
+                <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.FirstName)" />
             </div>
 
             <div class="row mb-3">
@@ -53,8 +53,9 @@
                 <label for="email" class="col-form-label col-md-3">Email: </label>
                 <div class="col-md-8">
                     <InputText id="email" class="form-control col-md-8" @bind-Value="@Employee.Email" placeholder="Enter email"></InputText>
-                    <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.Email)" />
+                    
                 </div>
+                <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.Email)" />
             </div>
 
             <div class="row mb-3">
