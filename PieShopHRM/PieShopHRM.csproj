@@ -14,7 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PieShopHRM.ComponentsLibrary\PieShopHRM.ComponentsLibrary.csproj" />
     <ProjectReference Include="..\PieShopHRM.Shared\PieShopHRM.Shared.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<BlazorWebAssemblyLazyLoad Include="PieShopHRM.ComponentsLibrary.dll" />
+	</ItemGroup>
 
 </Project>
