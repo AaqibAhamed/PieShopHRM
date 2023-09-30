@@ -12,7 +12,7 @@
               OnInvalidSubmit="@HandleInValidSubmit">
 
             <DataAnnotationsValidator />
-            <ValidationSummary></ValidationSummary>
+            <ValidationSummary style="color:red"></ValidationSummary>
 
             @if (Employee.EmployeeId == 0)
             {
@@ -30,7 +30,7 @@
                 <div class="col-md-8">
                     <InputText id="lastName" class="form-control col-md-8" @bind-Value="@Employee.LastName" placeholder="Enter last name"></InputText>
                 </div>
-                <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.LastName)" />
+                <ValidationMessage style="color:red" class="offset-md-3 col-md-8" For="@(() => Employee.LastName)" />
             </div>
 
             <div class="row mb-3">
@@ -39,7 +39,7 @@
                     <InputText id="firstName" class="form-control col-md-8" @bind-Value="@Employee.FirstName" placeholder="Enter first name"></InputText>
 
                 </div>
-                <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.FirstName)" />
+                <ValidationMessage style="color:red" class="offset-md-3 col-md-8" For="@(() => Employee.FirstName)" />
             </div>
 
             <div class="row mb-3">
@@ -55,7 +55,7 @@
                     <InputText id="email" class="form-control col-md-8" @bind-Value="@Employee.Email" placeholder="Enter email"></InputText>
                     
                 </div>
-                <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.Email)" />
+                <ValidationMessage style="color:red" class="offset-md-3 col-md-8" For="@(() => Employee.Email)" />
             </div>
 
             <div class="row mb-3">
@@ -181,7 +181,7 @@
                 <div class="col-md-8">
                     <InputTextArea id="comment" class="form-control" @bind-Value="@Employee.Comment" placeholder="Enter comment"></InputTextArea>
                 </div>
-                <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.Comment)" />
+                <ValidationMessage style="color:red" class="offset-md-3 col-md-8" For="@(() => Employee.Comment)" />
             </div>
 
             <button type="submit" class="btn btn-primary me-1">Save employee</button>
