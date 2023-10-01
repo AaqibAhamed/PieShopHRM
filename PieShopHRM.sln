@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.Shared", "PieSho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.Api", "PieShopHRM.Api\PieShopHRM.Api.csproj", "{365097D0-900C-4986-AC3D-8440AD80D5C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShopHRM.ComponentsLibrary", "PieShopHRM.ComponentsLibrary\PieShopHRM.ComponentsLibrary.csproj", "{916DBEE9-064C-4195-A667-0F7BE59DBCDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShopHRM.ComponentsLibrary", "PieShopHRM.ComponentsLibrary\PieShopHRM.ComponentsLibrary.csproj", "{916DBEE9-064C-4195-A667-0F7BE59DBCDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
