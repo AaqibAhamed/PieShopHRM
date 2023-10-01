@@ -1,0 +1,30 @@
+﻿<h3>SampleComponentTests</h3>
+@inherits  TestContext
+
+@code {
+
+    [Fact]
+    public void RenderSampleComponentWithValueGreaterThanZero()
+    {
+        //Arrange
+        using var ctx = new TestContext();
+
+        //Act
+        var cut = ctx.Render(@<SampleComponent MessageCount="5"></SampleComponent>);
+
+        //Assert
+        cut.MarkupMatches("<h3>Inbox</h3><h4>You currently have 5 questions from employees!</h4>");
+    }
+
+    [Fact]
+    public void RenderSampleComponentWithZero()
+    {
+        //Arrange
+      //  using var ctx = new TestContext();
+        //Act
+        var cut = Render(@<SampleComponent MessageCount="0" />);
+        //Assert
+        cut.MarkupMatches("<h3>Inbox</h3><h4>No questions from employees! All good!</h4>");
+    }
+}
+
