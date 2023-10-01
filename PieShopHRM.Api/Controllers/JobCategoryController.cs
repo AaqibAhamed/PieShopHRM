@@ -1,5 +1,6 @@
 ﻿using PieShopHRM.Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -7,6 +8,7 @@ namespace PieShopHRM.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class JobCategoryController : Controller
     {
         private readonly IJobCategoryRepository _jobCategoryRepository;
