@@ -1,5 +1,6 @@
 using PieShopHRM.Api.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,17 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, c =>
+    {
+        c.Authority = $"https://{builder.Configuration["Auth0:Domain"]}";
+        c.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        {
+            ValidAudience = builder.Configuration["Auth0:Audience"],
+            ValidIssuer = $"https://{builder.Configuration["Auth0:Domain"]}"
+        };
+    });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -36,7 +48,6 @@ if (app.Environment.IsDevelopment())
 }
 
 // Configure the HTTP request pipeline.
-
 //if (app.Environment.IsDevelopment())
 //{
 //    app.UseSwagger();
@@ -50,6 +61,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthorization();
 app.UseAuthorization();
 
 app.UseCors("Open");
