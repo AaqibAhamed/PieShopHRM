@@ -1,0 +1,37 @@
+﻿<h3>InboxWidgetTest</h3>
+@using PieShopHRM.Components.Widgets
+
+@inherits TestContext
+
+@code {
+
+    public InboxWidgetTest()
+    {
+        this.Services.AddScoped<AppState>();
+    }
+
+    [Fact]
+    public void RenderInboxWidgetTest()
+    {
+        var appstate = this.Services.GetService<AppState>();
+        appstate.NumberOfMessages = 10;
+
+        var cut = Render(@<InboxWidget />);
+
+        cut.MarkupMatches(@"  <h3>Inbox</h3>   <h4 id=""Test"" >You currently have 10 questions from employees!</h4> <br /> <br />");
+
+
+    }
+
+    [Fact]
+    public void RenderInboxWidgetTest2()
+    {
+        var appstate = this.Services.GetService<AppState>();
+        appstate.NumberOfMessages = 10;
+
+        var cut2 = Render(@<InboxWidget />);
+
+        cut2.Find("#Test").MarkupMatches(@"  <h4 id=""Test"">You currently have 10 questions from employees!</h4>");
+
+    }
+}
