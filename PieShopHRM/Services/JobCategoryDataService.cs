@@ -14,7 +14,7 @@ namespace PieShopHRM.Services
         public async Task<IEnumerable<JobCategory>> GetAllJobCategories()
         {
             return await JsonSerializer.DeserializeAsync<IEnumerable<JobCategory>>
-              (await _httpClient.GetStreamAsync($"api/jobCategory"),
+              (await _httpClient.GetStreamAsync($"api/jobcategory"),
               new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
